@@ -51,6 +51,7 @@
             border-radius: 0.375rem;
             padding: 0.75rem;
             border: 2px solid transparent;
+            cursor: pointer;
         }
         .prompt-example-part.highlight-c { background-color: rgba(59, 130, 246, 0.1); border-left-color: #3B82F6; }
         .prompt-example-part.highlight-r { background-color: rgba(16, 185, 129, 0.1); border-left-color: #10B981; }
@@ -371,14 +372,14 @@
                 <!-- Prompt Example -->
                 <div class="bg-gray-800 text-white p-6 rounded-xl shadow-md flex flex-col">
                      <h3 class="text-xl font-bold text-white mb-4">Example in Practice</h3>
-                     <p class="text-sm text-gray-300 mb-4">Open an accordion item to see the corresponding part of the prompt highlight below.</p>
+                     <p class="text-sm text-gray-300 mb-4">Open an accordion item or click a section below to see the link between the framework and the example.</p>
                      <div class="bg-gray-900 p-4 rounded-lg font-mono text-sm leading-relaxed flex-grow space-y-2 overflow-y-auto">
                         <div class="prompt-example-part" id="prompt-c">
-                            <p class="font-bold text-blue-400 text-xs uppercase tracking-wider mb-1">[C] Context &amp; Role</p>
+                            <p class="font-bold text-blue-400 text-xs uppercase tracking-wider mb-1">[C] Role</p>
                             <p class="text-gray-300">You are a professional copywriter specialising in compelling communications for corporate leadership development.</p>
                         </div>
                         <div class="prompt-example-part" id="prompt-r">
-                            <p class="font-bold text-green-400 text-xs uppercase tracking-wider mb-1">[R] Request &amp; Task</p>
+                            <p class="font-bold text-green-400 text-xs uppercase tracking-wider mb-1">[R] Request & Task</p>
                             <p class="text-gray-300">Draft an email to advertise and explain a new leadership development programme.</p>
                         </div>
                         <div class="prompt-example-part" id="prompt-e1">
@@ -451,39 +452,55 @@ document.addEventListener('DOMContentLoaded', function () {
     const accordionItems = document.querySelectorAll('.accordion-item');
     const promptParts = document.querySelectorAll('.prompt-example-part');
 
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion-header');
+    function handleAccordionClick(header) {
+        const item = header.parentElement;
         const content = item.querySelector('.accordion-content');
         const icon = item.querySelector('.accordion-icon');
         const highlightKey = item.getAttribute('data-highlight');
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
 
-        header.addEventListener('click', () => {
-            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+        // Close all other accordions and remove all highlights first
+        accordionItems.forEach(otherItem => {
+            otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+            otherItem.querySelector('.accordion-icon').textContent = '+';
+        });
+        promptParts.forEach(part => {
+            part.className = 'prompt-example-part'; // Reset classes
+        });
+        
+        // Toggle current accordion and apply highlight
+        if (isOpen) {
+            content.style.maxHeight = '0px';
+            icon.textContent = '+';
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.textContent = '-';
+            const targetPromptPart = document.getElementById(`prompt-${highlightKey}`);
+            if (targetPromptPart) {
+                targetPromptPart.classList.add(`highlight-${highlightKey}`);
+            }
+        }
+    }
 
-            // Close all other accordions and remove all highlights first
-            accordionItems.forEach(otherItem => {
-                otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
-                otherItem.querySelector('.accordion-icon').textContent = '+';
-            });
-            promptParts.forEach(part => {
-                part.className = 'prompt-example-part'; // Reset classes
-            });
-            
-            // Toggle current accordion and apply highlight
-            if (isOpen) {
-                content.style.maxHeight = '0px';
-                icon.textContent = '+';
-                // Highlight is removed by the reset above
-            } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
-                icon.textContent = '-';
-                const targetPromptPart = document.getElementById(`prompt-${highlightKey}`);
-                if (targetPromptPart) {
-                    targetPromptPart.classList.add(`highlight-${highlightKey}`);
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => handleAccordionClick(header));
+    });
+
+    promptParts.forEach(part => {
+        part.addEventListener('click', () => {
+            const partId = part.id; // e.g., "prompt-r"
+            const highlightKey = partId.split('-')[1]; // e.g., "r"
+            const correspondingAccordionItem = document.querySelector(`.accordion-item[data-highlight="${highlightKey}"]`);
+            if (correspondingAccordionItem) {
+                const correspondingHeader = correspondingAccordionItem.querySelector('.accordion-header');
+                if (correspondingHeader) {
+                    handleAccordionClick(correspondingHeader);
                 }
             }
         });
     });
+
 
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
