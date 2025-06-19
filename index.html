@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-GB" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +12,19 @@
     <!-- Application Structure Plan: A single-page, vertical scrolling narrative designed for senior leaders. The structure guides the user from foundational concepts ('What is AI?') to practical applications ('Prompting'), using interactive elements like tabs and accordions to make dense information digestible. A sticky navigation bar allows for non-linear exploration. This thematic flow was chosen over a dashboard to better suit the educational, report-based content, fostering understanding rather than just data presentation. The key interactions (clicking tabs for AI types, exploring the C.R.E.A.T.E. framework) are designed to engage a busy, non-technical audience. -->
     <!-- Visualization & Content Choices: Report Info -> Goal -> Viz/Presentation Method -> Interaction -> Justification. 
         - AI Definition -> Inform -> Clear text block -> Reading -> Simple & direct.
-        - AI Types -> Organize/Compare -> Interactive tabs -> Clicking tabs reveals content -> Prevents information overload, encourages exploration. (HTML/CSS/JS)
+        - AI Types -> Organise/Compare -> Interactive tabs -> Clicking tabs reveals content -> Prevents information overload, encourages exploration. (HTML/CSS/JS)
         - AI Tools -> Compare -> Interactive card layout -> Hovering/clicking reveals details -> More dynamic and engaging than a static table for qualitative comparison. (HTML/CSS/JS)
         - Cautions -> Inform -> Icon-driven cards -> Reading -> Visually separates key risks for better retention. (HTML/CSS)
         - Privacy (Free vs Paid) -> Compare -> Side-by-side comparison cards -> Reading -> Direct visual contrast makes the critical distinction clear. (HTML/CSS)
-        - Prompting Framework -> Teach/Organize -> Interactive accordion -> Clicking expands each C.R.E.A.T.E. step -> Breaks a complex process into manageable steps. (HTML/CSS/JS)
+        - Prompting Framework -> Teach/Organise -> Interactive accordion -> Clicking expands each C.R.E.A.T.E. step -> Breaks a complex process into manageable steps. (HTML/CSS/JS)
         - Prompt Example -> Teach -> Interactive text with tooltips -> Hovering over parts of the prompt explains their function -> Reinforces the learning from the framework in a practical example. (HTML/CSS/JS)
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F9FA; /* Light neutral gray */
-            color: #212529; /* Dark Gray */
+            background-color: #F8F9FA; /* Light neutral grey */
+            color: #212529; /* Dark Grey */
         }
         .nav-link {
             transition: color 0.3s ease, border-bottom-color 0.3s ease;
@@ -127,7 +127,7 @@
         <section id="types" class="mb-16 scroll-mt-24">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Understanding the Types of AI</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">AI isn't a monolith. For leaders, it's helpful to categorize it by its function. Click through the tabs below to explore the most relevant types of AI in the business and healthcare landscape today.</p>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">AI isn't a monolith. For leaders, it's helpful to categorise it by its function. Click through the tabs below to explore the most relevant types of AI in the business and healthcare landscape today.</p>
             </div>
             <div class="max-w-4xl mx-auto">
                 <div class="mb-6 flex flex-wrap justify-center gap-2 border-b border-gray-200 pb-4">
@@ -140,7 +140,7 @@
                     <!-- Generative AI -->
                     <div class="tab-pane active" id="generative">
                         <h3 class="text-2xl font-bold text-gray-800">Generative AI</h3>
-                        <p class="mt-2 text-gray-600">This is the category that has captured the public's imagination. Generative AI **creates new, original content**. This could be text, images, music, code, or even video. It learns from vast amounts of existing data and then generates novel outputs.</p>
+                        <p class="mt-2 text-gray-600">This is the category that has captured the public's imagination. Generative AI <b>creates new, original content</b>. This could be text, images, music, code, or even video. It learns from vast amounts of existing data and then generates novel outputs.</p>
                         <div class="mt-4 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
                             <p class="font-semibold text-blue-800">Example:</p>
                             <p class="text-blue-700">"Draft a communication plan for the rollout of a new digital training module for clinical staff."</p>
@@ -149,7 +149,7 @@
                     <!-- Search AI -->
                     <div class="tab-pane hidden" id="search">
                         <h3 class="text-2xl font-bold text-gray-800">Search AI</h3>
-                        <p class="mt-2 text-gray-600">This goes beyond traditional keyword search. Search AI understands the **intent and context** behind your query to provide more relevant and comprehensive answers, often summarizing information from multiple sources into a coherent response.</p>
+                        <p class="mt-2 text-gray-600">This goes beyond traditional keyword search. Search AI understands the <b>intent and context</b> behind your query to provide more relevant and comprehensive answers, often summarising information from multiple sources into a coherent response.</p>
                         <div class="mt-4 bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg">
                             <p class="font-semibold text-green-800">Example:</p>
                             <p class="text-green-700">"Summarise the latest NICE guidelines on diabetes management and highlight any changes from the previous version."</p>
@@ -170,7 +170,7 @@
                         <p class="mt-2 text-gray-600">This type of AI is focused on automating repetitive, rule-based tasks to increase efficiency, reduce human error, and free up staff for more complex work. It is often a core component of Robotic Process Automation (RPA).</p>
                         <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
                             <p class="font-semibold text-yellow-800">Example:</p>
-                            <p class="text-yellow-700">An AI system that automatically categorizes incoming patient feedback into themes like 'scheduling', 'clinical care', or 'facilities'.</p>
+                            <p class="text-yellow-700">An AI system that automatically categorises incoming patient feedback into themes like 'scheduling', 'clinical care', or 'facilities'.</p>
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                 <div class="tool-card bg-white p-6 rounded-xl shadow-md border border-gray-200/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <h3 class="text-xl font-bold text-gray-800">ChatGPT (OpenAI)</h3>
                     <p class="text-sm font-medium text-blue-600 mt-1">Generative, Conversational</p>
-                    <p class="mt-4 text-gray-600 text-sm">Highly creative and versatile, excellent for brainstorming, drafting content, and summarizing text.</p>
+                    <p class="mt-4 text-gray-600 text-sm">Highly creative and versatile, excellent for brainstorming, drafting content, and summarising text.</p>
                     <div class="mt-4">
                         <p class="font-semibold text-xs text-green-700">STRENGTHS:</p>
                         <p class="text-xs text-gray-500">Creative writing, code generation, general brainstorming.</p>
@@ -219,7 +219,7 @@
                     <p class="mt-4 text-gray-600 text-sm">Deeply integrated into Microsoft 365, ideal for boosting productivity within your existing workflows.</p>
                     <div class="mt-4">
                         <p class="font-semibold text-xs text-green-700">STRENGTHS:</p>
-                        <p class="text-xs text-gray-500">Context-aware within Office apps, great for summarizing emails, creating presentations.</p>
+                        <p class="text-xs text-gray-500">Context-aware within Office apps, great for summarising emails, creating presentations.</p>
                     </div>
                     <div class="mt-2">
                         <p class="font-semibold text-xs text-red-700">WEAKNESSES:</p>
@@ -403,7 +403,7 @@
     
     <footer class="bg-gray-800 text-white mt-16">
         <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p>&copy; 2025 Jason Brewster. Created with Google Gemini. For educational purposes.</p>
+            <p>&copy; 2025, Jason Brewster. created with Google Gemini.</p>
         </div>
     </footer>
 
@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetId = e.target.value;
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+                targetElement.scrollIntoView({ behaviour: 'smooth' });
             }
         });
     }
